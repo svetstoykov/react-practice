@@ -1,0 +1,120 @@
+* {
+    font-family: Poppins, sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #e5e5e5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+h2 {
+    font-size: 0.75rem;
+    font-weight: normal;
+}
+
+section {
+    padding: 20px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 550px;
+    height: 950px;
+    background-color: #ffffff;
+    border-radius: 15px;
+}
+
+.gray {
+    color: gray;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.navbar-header {
+    padding: 0.5rem;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2); /* Example shadow */
+}
+
+.navbar-header > img {
+    width: 25%;
+    padding: 1rem;
+}
+
+.navbar-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.navbar-content > img {
+    padding: 1rem;
+    margin: 1rem;
+    width: 90%;
+    align-self: center;
+}
+
+.navbar-content > h1 {
+    font-weight: 600;
+    padding-left: 1rem;
+    padding-bottom: 1rem;
+    margin-left: 1rem;
+}
+
+.navbar-content > p {
+    font-weight: 400;
+    width: 65%;
+    padding-left: 1rem;
+    margin-left: 1rem;
+}
+
+.card {
+    width: 175px;
+    font-size: 12px;
+    flex: 0 0 auto; /* ADD */
+    display: flex; /* ADD */
+    flex-direction: column; /* ADD */
+    position: relative;
+}
+
+.card-list {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 20px;
+    overflow-x: auto;
+}
+
+.card-image {
+    width: 100%;
+    border-radius: 9px;
+}
+
+.card-stats {
+    padding-top: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.card-star {
+    height: 16px;
+}
+
+.card-badge {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  background-color: white;
+  padding: 5px 7px;
+  border-radius: 2px;
+  font-weight: bold;
+}
