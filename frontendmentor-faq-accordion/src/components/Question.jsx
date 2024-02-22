@@ -19,7 +19,7 @@ function Question({ title, content, isLast }) {
             </div>
             <div className={`question-content ${isExpanded ? "expanded" : "collapsed"}`}>
                 <p>{content}</p>
-            </div>{" "}
+            </div>
             {!isLast && <hr className="line" />}
         </div>
     );
