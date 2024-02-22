@@ -1,0 +1,39 @@
+:root {
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  background-color: #d5e1ef;
+}
+
+body {
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  background-color: #FFFFFF;
+  width: 350px;
+}
+
+.container > h2 {
+  margin: 0 2rem 0 2rem;
+  text-align: center;
+}
+
+.container > p {
+  margin: 1rem 2rem 2rem 2rem;
+  color: #85909a;
+  text-align: center;
+}
+
+.container > img {
+  max-width: 100%;
+  margin: 1rem;
+  border-radius: 20px;
+}
