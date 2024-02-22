@@ -11,12 +11,6 @@ This is a solution to the [FAQ accordion challenge on Frontend Mentor](https://w
 - [My process](#my-process)
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
-  - [Continued development](#continued-development)
-  - [Useful resources](#useful-resources)
-- [Author](#author)
-- [Acknowledgments](#acknowledgments)
-
-**Note: Delete this note and update the table of contents based on what sections you keep.**
 
 ## Overview
 
@@ -31,8 +25,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://65d721d3818cc203c8036ee6--tourmaline-bubblegum-a5bcb0.netlify.app/)
+- Solution URL: [Here](https://github.com/svetstoykov/react-practice/tree/frontendmentor-faq-accordion/frontendmentor-faq-accordion)
+- Live Site URL: [Here](https://65d721d3818cc203c8036ee6--tourmaline-bubblegum-a5bcb0.netlify.app/)
 
 ## My process
 
