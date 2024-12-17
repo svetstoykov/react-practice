@@ -5,7 +5,7 @@ const Hero = () => {
     <div className="relative h-full text-white bg-black/20">
       <div className="flex items-center justify-center h-full">
         <div className="container grid grid-cols-1 gap-4 sm:grid-cols-2">
-          <div className="space-y-4 lg:pr-36">
+          <div data-aos="fade-right" className="space-y-4 lg:pr-36">
             <h1 className="py-1 text-5xl font-bold">ORBIT THE EARTH</h1>
             <p className="py-1 text-gray-200">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,

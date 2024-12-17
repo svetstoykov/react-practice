@@ -61,7 +61,7 @@ const Services = () => {
     <div className="relative z-50 text-white bg-black">
       <div className="container">
         <div className="min-h-[400px]">
-          <div className="relative z-10 grid grid-cols-1 gap-6 sm:grid-cols-3">
+          <div data-aos="fade-up"className="relative z-10 grid grid-cols-1 gap-6 sm:grid-cols-3">
             {serviceData.map((data) => Service(data))}
           </div>
           <img

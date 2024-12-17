@@ -3,7 +3,7 @@ import satelite from "../../assets/satelite1.jpg";
 const BannerOne = () => {
   return (
     <div className="relative z-50 pb-12 text-white bg-black">
-      <div className="container">
+      <div data-aos="fade-left" className="container">
         <div className="grid items-center grid-cols-1 gap-4 sm:grid-cols-2">
           <div>
             <img src={satelite} />
