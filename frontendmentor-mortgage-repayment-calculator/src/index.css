@@ -1,3 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.input-container {
+  @apply hover:border-lime hover:ring-1 focus-within:border-lime hover:ring-lime/70 
+         border border-gray-600 rounded-md h-11 flex items-center 
+         transition-colors duration-500;
+}
+
+.input-label {
+  @apply group-hover:bg-lime group-focus-within:bg-lime transition-colors duration-500 bg-sky-300/40;
+}
+
+.input-field {
+  @apply w-full focus-within:outline-none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

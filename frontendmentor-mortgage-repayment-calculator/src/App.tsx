@@ -1,53 +1,68 @@
-import calculatorIcon from "./assets/images/icon-calculator.svg"
+import calculatorIcon from "./assets/images/icon-calculator.svg";
+import MortgageAmountInput from "./components/inputs/MortgageAmountInput";
+import Header from "./components/Header";
+import MortgageTermInput from "./components/inputs/MortgageTermInput";
+import IntrestRateInput from "./components/inputs/IntrestRateInput";
+import MortgageTypeSelectInput from "./components/inputs/MortgageTypeSelectInput";
+import { useState } from "react";
 
 function App() {
+  const [mortgageType, setMortgageType] = useState<string>("Repayment");
+  const [mortgageAmount, setMortgageAmount] = useState<number | undefined>(
+    undefined
+  );
+  const [mortgageTerm, setMortgageTerm] = useState<number | undefined>(
+    undefined
+  );
+  const [intrestRate, setIntrestRate] = useState<number | undefined>(undefined);
+
   return (
     <div className="h-screen flex items-center justify-center font-jakarta">
       <div className="flex md:flex-row flex-col md:min-h-[450px]">
-        <div className="bg-white text-results md:p-10 p-4 md:min-w-[450px] rounded-l-xl">
-          <div className="grid grid-rows-5 grid-cols-2 flex-grow md:gap-4 gap-2">
+        <div className="bg-white text-results md:p-10 p-6 md:min-w-[450px] rounded-l-xl">
+          <div className="grid grid-rows-5 grid-cols-2 flex-grow md:gap-3 gap-2">
             <div className="col-span-2 flex justify-between items-start">
-              <h1 className="text-2xl font-bold">Mortgage Calculator</h1>
-              <button className="text-sm text-gray-500 underline">
-                Clear all
-              </button>
+              <Header />
             </div>
             <div className="col-span-2 flex flex-col">
-              <label className="text-sm text-gray-500 mb-2">
-                Mortgage Amount
-              </label>
-              <input className="border border-gray-600 rounded-md"></input>
+              <MortgageAmountInput
+                onChange={setMortgageAmount}
+                value={mortgageAmount}
+              />
             </div>
             <div className="flex flex-col">
-              <label className="text-sm text-gray-500 mb-2">
-                Mortgage Term
-              </label>
-              <input className="border border-gray-600 rounded-md"></input>
+              <MortgageTermInput
+                onChange={setMortgageTerm}
+                value={mortgageTerm}
+              />
             </div>
             <div className="flex flex-col">
-              <label className="text-sm text-gray-500 mb-2">Intrest Rate</label>
-              <input className="border border-gray-600 rounded-md"></input>
+              <IntrestRateInput onChange={setIntrestRate} value={intrestRate} />
             </div>
             <div className="col-span-2 row-span-2">
-              <label className="text-sm text-gray-500">Mortgage Type</label>
-              <ul className="flex flex-col gap-2 mt-2">
-                <li className="border border-gray-600 rounded-md font-bold p-1">
-                  <input className="mx-2" type="radio" name="mortgage-type" />
-                  <label>Repayment</label>
-                </li>
-                <li className="border border-gray-600 rounded-md font-bold p-1">
-                  <input className="mx-2" type="radio" name="mortgage-type" />
-                  <label>Interest Only</label>
-                </li>
-              </ul>
+              <MortgageTypeSelectInput
+                radioButtons={["Repayment", "Interest Only"]}
+                selected={mortgageType}
+                onClick={setMortgageType}
+              />
             </div>
           </div>
-          <button className="bg-lime py-3 px-6 rounded-3xl mt-4 flex items-center justify-center">
-            <img src={calculatorIcon}/>
-            <label className="ml-2">Calculate Repayments</label>
-          </button>
+          <div className="flex md:justify-start justify-center">
+            <button
+              className="bg-lime py-3 px-6 rounded-3xl mt-4 flex items-center"
+              onClick={() =>
+                console.log(
+                  `Mortgage Amount: ${mortgageAmount}, Mortgage Term: ${mortgageTerm}, Intrest Rate: ${intrestRate}, Mortgage Type: ${mortgageType}`
+                )
+              }
+            >
+              <img src={calculatorIcon} />
+              <span className="ml-2">Calculate Repayments</span>
+            </button>
+          </div>
         </div>
         <div className="bg-results text-white md:min-w-[300px] rounded-r-xl">
+          {/* To be completed.... */}
           Results
         </div>
       </div>
