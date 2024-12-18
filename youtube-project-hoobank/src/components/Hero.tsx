@@ -3,7 +3,7 @@ import { assets } from "../constants/contants";
 const Hero = () => {
   return (
     <div className="flex flex-col items-center justify-between sm:flex-row font-poppins h-[700px]">
-      <div className="flex flex-col justify-center h-full px-4 py-6">
+      <div className="relative flex flex-col justify-center h-full px-4 py-6">
         <div className="flex items-center gap-1 px-1 pr-2 text-gray-400 uppercase rounded-xl w-fit backdrop-blur-md bg-gradient-to-r from-gray-800/80 to-gray-900/80">
           <img src={assets.discount} />
           <div>
@@ -23,9 +23,18 @@ const Hero = () => {
           most likely to fit your needs. We examine annual percentage rates,
           annual fees.
         </p>
+
+        <div className="opacity-20 absolute w-[60%] h-[70%] top-20 -left-1/4 rounded-full blur-2xl bg-gradient-to-r from-blue-200 to-pink-300 z-1" />
       </div>
-      <div className="flex justify-end w-full">
-        <img src={assets.robot} alt="billing" className="w-full max-w-[700px]" />
+      <div className="relative flex justify-end w-full">
+        <img
+          src={assets.robot}
+          alt="billing"
+          className="relative z-10 w-full max-w-[700px]"
+        />
+
+        <div className="opacity-50 absolute z-[0] w-[60%] h-[60%] top-10 left-20 rounded-full blur-2xl bg-gradient-to-r from-blue-200 to-sky-600 " />
+        <div className="opacity-50 absolute z-[0] w-[60%] h-[60%] top-0 right-20 rounded-full blur-2xl bg-gradient-to-r from-blue-200 to-pink-500 " />
       </div>
     </div>
   );
