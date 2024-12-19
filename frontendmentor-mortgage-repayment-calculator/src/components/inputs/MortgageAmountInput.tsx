@@ -22,7 +22,7 @@ const MortgageAmountInput: React.FC<IMortgageAmountInputProps> = ({
           step=".01"
           type="number"
           className="input-field"
-          value={value}
+          value={value || ''}
         />
       </div>
     </>

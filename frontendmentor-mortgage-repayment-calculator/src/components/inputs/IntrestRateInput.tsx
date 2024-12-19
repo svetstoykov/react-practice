@@ -15,7 +15,7 @@ const IntrestRateInput: React.FC<IntrestRateInputProps> = ({
           placeholder="12.00"
           type="number"
           className="input-field max-w-[120px] pl-2"
-          value={value}
+          value={value || ''}
           onChange={(e) => onChange(Number(e.target.value))}
         />
         <div className="h-full w-[60px] input-label flex items-center justify-center">
