@@ -9,8 +9,7 @@ const IntrestRateInput: React.FC<IntrestRateInputProps> = ({
 }: IntrestRateInputProps) => {
   return (
     <>
-      <label className="text-sm text-gray-500 mb-2">Interest Rate</label>
-      <div className="input-container group flex justify-between">
+      <div className="flex justify-between input-container group">
         <input
           placeholder="12.00"
           type="number"

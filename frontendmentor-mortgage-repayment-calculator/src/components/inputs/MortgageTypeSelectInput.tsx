@@ -20,14 +20,9 @@ const MortgageTypeSelectInput: React.FC<IMortgageTypeSelectInputProps> = ({
     }
 
     return (
-      <label
-        key={id.toString()}
-        className={listItemClass}
-      >
+      <label key={id.toString()} className={listItemClass}>
         <input
-          className="mx-2 appearance-none w-3 h-3 border-2 rounded-full 
-                    checked:bg-lime/10 checked:border-lime
-                    border-gray-400 bg-white"
+          className="w-3 h-3 mx-2 bg-white border-2 border-gray-400 rounded-full appearance-none checked:bg-lime/10 checked:border-lime"
           type="radio"
           name="mortgage-type"
           checked={selected === title}
@@ -39,13 +34,9 @@ const MortgageTypeSelectInput: React.FC<IMortgageTypeSelectInputProps> = ({
   };
 
   return (
-    <>
-      <label className="text-sm text-gray-500">Mortgage Type</label>
-      <div className="flex flex-col gap-2 mt-2">
-        {radioButtons &&
-          radioButtons.map((title, index) => radio(title, index))}
-      </div>
-    </>
+    <div className="flex flex-col gap-2 mt-2">
+      {radioButtons && radioButtons.map((title, index) => radio(title, index))}
+    </div>
   );
 };
 
