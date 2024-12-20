@@ -6,6 +6,10 @@ export default {
   ],
   theme: {
     extend: {
+      colors: {
+        "aqua": "#3db4ac",
+        "secondary-text": "#9CA3AF",
+      },
       fontFamily: {
         commisioner: ['"Commissioner"', "sans-serif"],
       }
