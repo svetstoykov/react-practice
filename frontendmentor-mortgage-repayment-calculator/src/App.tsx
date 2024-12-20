@@ -60,59 +60,69 @@ function App() {
   };
 
   return (
-    <div className="h-screen flex items-center justify-center font-jakarta">
-      <div className="flex md:flex-row flex-col md:min-h-[450px] bg-white rounded-xl">
-        <div className="rounded-l-xl bg-white text-results md:p-10 p-6 pt-5 md:min-w-[450px]">
-          <div className="grid grid-rows-5 grid-cols-2 flex-grow md:gap-3 gap-2">
-            <div className="col-span-2 flex justify-between items-start">
+    <main className="flex items-center justify-center font-jakarta">
+      <div className="flex m-auto md:flex-row flex-col md:min-h-[450px] bg-white rounded-xl">
+        <section className="rounded-l-xl bg-white text-results md:p-10 p-6 pt-5 md:min-w-[450px]">
+          <div className="grid flex-grow grid-cols-2 grid-rows-5 gap-2 md:gap-3">
+            <header className="flex items-start justify-between col-span-2">
               <Header handleClear={handleClearAll} />
-            </div>
-            <div className="col-span-2 flex flex-col">
+            </header>
+            <fieldset className="flex flex-col col-span-2">
+              <legend className="mb-2 text-sm text-gray-500">
+                Mortgage Amount
+              </legend>
               <MortgageAmountInput
                 onChange={setMortgageAmount}
                 value={mortgageAmount}
               />
-            </div>
-            <div className="flex flex-col">
+            </fieldset>
+            <fieldset className="flex flex-col">
+              <legend className="mb-2 text-sm text-gray-500">
+                Mortgage Term
+              </legend>
               <MortgageTermInput
                 onChange={setMortgageTerm}
                 value={mortgageTerm}
               />
-            </div>
-            <div className="flex flex-col">
+            </fieldset>
+            <fieldset className="flex flex-col">
+              <legend className="mb-2 text-sm text-gray-500">
+                Interest Rate
+              </legend>
               <IntrestRateInput
                 onChange={setIntrestRate}
                 value={interestRate}
               />
-            </div>
-            <div className="col-span-2 row-span-2">
+            </fieldset>
+            <fieldset className="col-span-2 row-span-2">
+              <legend className="text-sm text-gray-500">Mortgage Type</legend>
               <MortgageTypeSelectInput
                 radioButtons={["Repayment", "Interest Only"]}
                 selected={mortgageType}
                 onClick={setMortgageType}
               />
-            </div>
+            </fieldset>
           </div>
-          <div className="flex md:justify-start justify-center">
+          <section className="flex justify-center md:justify-start">
             <button
-              className="bg-lime py-3 px-6 rounded-3xl mt-4 flex items-center"
+              className="flex items-center px-6 py-3 mt-4 bg-lime rounded-3xl"
               onClick={handleCalculate}
             >
-              <img src={calculatorIcon} />
+              <img src={calculatorIcon} alt="Calculate" />
               <span className="ml-2">Calculate Repayments</span>
             </button>
-          </div>
-        </div>
-        <div className="bg-results text-white md:w-[450px] md:rounded-r-xl md:rounded-bl-[100px] rounded-b-xl pb-6" >
+          </section>
+        </section>
+        <section className="bg-results text-white md:w-[450px] md:rounded-r-xl md:rounded-bl-[100px] rounded-b-xl pb-6">
           <Results
             monthlyRepayment={mortgageResults?.monthlyRepayment ?? 0}
             totalRepayment={mortgageResults?.totalRepayment ?? 0}
             showResults={showResults}
           />
-        </div>
+        </section>
       </div>
       <ToastContainer />
-    </div>
+    </main>
   );
 }
 
