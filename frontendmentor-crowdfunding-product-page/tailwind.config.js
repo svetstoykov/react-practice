@@ -8,7 +8,7 @@ export default {
     extend: {
       colors: {
         "aqua": "#3db4ac",
-        "secondary-text": "#9CA3AF",
+        "secondary-text": "#989898",
       },
       fontFamily: {
         commisioner: ['"Commissioner"', "sans-serif"],
