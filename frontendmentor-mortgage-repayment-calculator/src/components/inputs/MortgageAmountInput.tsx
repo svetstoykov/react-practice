@@ -11,7 +11,6 @@ const MortgageAmountInput: React.FC<IMortgageAmountInputProps> = ({
 }) => {
   return (
     <>
-      <label className="text-sm text-gray-500 mb-2">Mortgage Amount</label>
       <div className="input-container group">
         <div className="mr-2 h-full w-[30px] input-label flex items-center justify-center">
           <BsCurrencyPound />
@@ -22,7 +21,7 @@ const MortgageAmountInput: React.FC<IMortgageAmountInputProps> = ({
           step=".01"
           type="number"
           className="input-field"
-          value={value || ''}
+          value={value || ""}
         />
       </div>
     </>
