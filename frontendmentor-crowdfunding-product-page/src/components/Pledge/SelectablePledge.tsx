@@ -13,7 +13,7 @@ const SelectablePledge: React.FC<ISelectablePledgeProps> = ({
   reward,
   pledgeSelected,
   onSelectPledge,
-  onClickContinue
+  onClickContinue,
 }) => {
   return (
     <li
@@ -47,7 +47,9 @@ const SelectablePledge: React.FC<ISelectablePledgeProps> = ({
         }`}
       >
         <div
-          className={`absolute inset-x-0 top-0 transform transition-all duration-300 ease-in-out`}
+          className={`absolute inset-x-0 top-0 transform transition-all duration-300 ease-in-out ${
+            pledgeSelected === reward.id ? "opacity-100" : "opacity-0"
+          }`}
         >
           {/* Border top */}
           <div className="absolute inset-x-0 top-0 h-px bg-gray-200" />
