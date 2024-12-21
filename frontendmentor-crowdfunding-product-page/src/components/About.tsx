@@ -1,9 +1,13 @@
 import Reward from "./Reward";
 import rewardTiers, { IRewardTier } from "../data/rewards";
 import { useState } from "react";
-import PledgeModal from "./PledgeModal";
+import SinglePledgeModal from "./Pledge/SinglePledgeModal";
 
-const About = () => {
+interface IAboutProps {
+  isMobile: boolean;
+}
+
+const About: React.FC<IAboutProps> = ({ isMobile }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedReward, setSelectedReward] = useState<IRewardTier | null>(
     null
@@ -20,7 +24,7 @@ const About = () => {
   };
 
   return (
-    <section className="row-span-6 p-8 bg-white rounded-md md:row-span-5">
+    <section className="relative z-10 row-span-6 p-8 bg-white rounded-md md:row-span-5">
       <h1 className="text-2xl font-semibold">About this project</h1>
       <p className="mt-4 text-secondary-text">
         The Mastercraft Bamboo Monitor Riser is a sturdy and stylish platform
@@ -43,7 +47,12 @@ const About = () => {
           />
         ))}
         {isModalOpen && selectedReward && (
-          <PledgeModal reward={selectedReward} onClose={() => closeModal()} />
+          <SinglePledgeModal
+            reward={selectedReward}
+            onClose={() => closeModal()}
+            onClickContinue={() => console.log("Continue")}
+            isMobile={isMobile}
+          />
         )}
       </div>
     </section>

@@ -2,16 +2,17 @@ import { useState } from "react";
 import bookmarkIcon from "../assets/images/icon-bookmark.svg";
 import logoMastercraft from "../assets/images/logo-mastercraft.svg";
 import checkIcon from "../assets/images/icon-check.svg";
-
+import MultiPledgeModal from "./Pledge/MultiPledgeModal";
 interface ITitleProps {
   isMobile: boolean;
 }
 
 const Title: React.FC<ITitleProps> = ({ isMobile }) => {
   const [isBookmarked, setIsBookmarked] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <section className="relative z-10 text-center bg-white rounded-md">
+    <section className="relative text-center bg-white rounded-md z-15">
       <img
         src={logoMastercraft}
         className="absolute transform -translate-x-1/2 -translate-y-1/2 -top-0.5 left-1/2"
@@ -23,7 +24,10 @@ const Title: React.FC<ITitleProps> = ({ isMobile }) => {
           A beautiful & handcrafted monitor stand to reduce neck and eye strain.
         </h2>
         <div className="flex items-center justify-between w-full gap-4 px-2 md:px-4">
-          <button className="px-6 py-2 primary-active-button">
+          <button
+            onClick={() => setIsModalOpen(true)}
+            className="px-6 py-2 primary-active-button"
+          >
             Back this project
           </button>
           <div
@@ -46,6 +50,10 @@ const Title: React.FC<ITitleProps> = ({ isMobile }) => {
             </button>
           </div>
         </div>
+
+        {isModalOpen && (
+          <MultiPledgeModal onClose={() => setIsModalOpen(false)} />
+        )}
       </div>
     </section>
   );

@@ -62,7 +62,7 @@ const Header: React.FC<IHeaderProps> = ({ currentHero, logo, isMobile }) => {
             className="fixed inset-0 z-20 bg-black opacity-50"
             onClick={toggleDropdown}
           ></div>
-          <div className="absolute z-30 bg-white border rounded shadow-lg w-[200px] top-20 right-12">
+          <div className="absolute bg-white border rounded shadow-lg w-[200px] top-20 right-12">
             <ul className="h-[100px] flex flex-col justify-between items-center text-center">
               <li className="flex items-center justify-center flex-1 w-full border-b">
                 <a href="#">About</a>
