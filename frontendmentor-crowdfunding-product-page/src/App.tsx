@@ -92,8 +92,10 @@ function App() {
   return (
     state && (
       <div className="relative w-full p-0 m-0 font-commisioner">
+        
         <Header currentHero={currentHero} logo={logo} isMobile={isMobile} />
         <main className="grid gap-4 grid-cols-1 md:grid-rows-7 w-[65%] max-w-[750px] md:min-w-[640px] min-w-[400px] mx-auto md:mt-44 mt-28 mb-20">
+          
           <Title
             onClickBackup={() => setIsBackupModalOpen(true)}
             isMobile={isMobile}
