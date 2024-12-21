@@ -7,10 +7,23 @@
 }
 
 .primary-disabled-button {
-  @apply font-semibold text-white transition duration-300 bg-gray-400 rounded-3xl
+  @apply font-semibold text-white transition duration-300 bg-gray-400 rounded-3xl;
 }
 
 textarea:focus,
 input:focus {
   outline: none;
+}
+
+@layer utilities {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
 }
