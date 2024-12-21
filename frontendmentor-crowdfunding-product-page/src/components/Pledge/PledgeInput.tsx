@@ -34,7 +34,7 @@ const PledgeInput: React.FC<IPledgeInputProps> = ({
   return (
     <>
       <span className="md:flex-1 text-secondary-text">Enter your pledge</span>
-      <div className="flex flex-1 w-1/5 px-2 py-2 ml-2 border-2 md:flex-none rounded-3xl">
+      <div className="flex flex-1 w-1/4 px-2 py-2 ml-2 border-2 md:flex-none rounded-3xl">
         <span className="ml-2">$</span>
         <input
           className="w-full px-2"
