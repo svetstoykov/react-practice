@@ -8,6 +8,7 @@ export default {
     extend: {
       colors: {
         "aqua": "#3db4ac",
+        "aqua-dark": "#147B74",
         "secondary-text": "#989898",
       },
       fontFamily: {

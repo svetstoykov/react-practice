@@ -1,7 +1,15 @@
+import { useState } from "react";
 import bookmarkIcon from "../assets/images/icon-bookmark.svg";
 import logoMastercraft from "../assets/images/logo-mastercraft.svg";
+import checkIcon from "../assets/images/icon-check.svg";
 
-const Title = () => {
+interface ITitleProps {
+  isMobile: boolean;
+}
+
+const Title: React.FC<ITitleProps> = ({ isMobile }) => {
+  const [isBookmarked, setIsBookmarked] = useState(false);
+
   return (
     <section className="relative z-10 text-center bg-white rounded-md">
       <img
@@ -15,12 +23,27 @@ const Title = () => {
           A beautiful & handcrafted monitor stand to reduce neck and eye strain.
         </h2>
         <div className="flex items-center justify-between w-full gap-4 px-2 md:px-4">
-          <button className="px-6 py-2 font-semibold text-white rounded-3xl bg-aqua">
+          <button className="px-6 py-2 primary-active-button">
             Back this project
           </button>
-          <div className="flex items-center justify-between pr-6 bg-gray-200 rounded-[30px]">
-            <img src={bookmarkIcon} alt="bookmark icon" className="w-[28%]" />
-            <button className="font-semibold text-gray-500">Bookmark</button>
+          <div
+            onClick={() => setIsBookmarked(!isBookmarked)}
+            className={`cursor-pointer transition duration-300 flex items-center justify-between md:pr-6 rounded-[30px] ${
+              isBookmarked ? "bg-aqua/30" : " bg-gray-200"
+            }`}
+          >
+            <img
+              src={isBookmarked ? checkIcon : bookmarkIcon}
+              alt="bookmark icon"
+              className="w-[42px] h-[42px] md:mr-4"
+            />
+            <button
+              className={`font-semibold ${
+                isBookmarked ? "text-aqua-dark" : "text-gray-500"
+              }`}
+            >
+              {isMobile ? "" : isBookmarked ? "Bookmarked" : "Bookmark"}
+            </button>
           </div>
         </div>
       </div>

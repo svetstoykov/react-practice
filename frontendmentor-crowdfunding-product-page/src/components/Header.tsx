@@ -65,19 +65,13 @@ const Header: React.FC<IHeaderProps> = ({ currentHero, logo, isMobile }) => {
           <div className="absolute z-30 bg-white border rounded shadow-lg w-[200px] top-20 right-12">
             <ul className="h-[100px] flex flex-col justify-between items-center text-center">
               <li className="flex items-center justify-center flex-1 w-full border-b">
-                <a href="#">
-                  About
-                </a>
+                <a href="#">About</a>
               </li>
               <li className="flex items-center justify-center flex-1 w-full border-b ">
-                <a href="#">
-                  Discover
-                </a>
+                <a href="#">Discover</a>
               </li>
               <li className="flex items-center justify-center flex-1 w-full">
-                <a href="#">
-                  Get Started
-                </a>
+                <a href="#">Get Started</a>
               </li>
             </ul>
           </div>

@@ -1,6 +1,10 @@
 import { IRewardTier } from "../data/rewards";
 
-const Reward: React.FC<IRewardTier> = (reward) => {
+interface IRewardProps extends IRewardTier {
+  onSelectReward: () => void;
+}
+
+const Reward: React.FC<IRewardProps> = (reward) => {
   return (
     <article
       key={reward.id}
@@ -23,8 +27,10 @@ const Reward: React.FC<IRewardTier> = (reward) => {
           left
         </div>
         <button
-          className={`px-6 py-2 font-semibold text-white rounded-3xl ${
-            !reward.isOutOfStock ? "bg-aqua" : "bg-gray-400"
+          disabled={reward.isOutOfStock}
+          onClick={reward.onSelectReward}
+          className={`px-6 py-2 ${
+            !reward.isOutOfStock ? "primary-active-button" : "primary-disabled-button"
           }`}
         >
           {reward.isOutOfStock ? "Out of Stock" : "Select Reward"}

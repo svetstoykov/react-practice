@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.primary-active-button {
+  @apply font-semibold text-white transition duration-300 bg-aqua rounded-3xl hover:bg-aqua-dark;
+}
+
+.primary-disabled-button {
+  @apply font-semibold text-white transition duration-300 bg-gray-400 rounded-3xl
+}
+
+textarea:focus,
+input:focus {
+  outline: none;
+}

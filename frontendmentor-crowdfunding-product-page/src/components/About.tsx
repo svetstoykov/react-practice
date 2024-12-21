@@ -1,7 +1,24 @@
 import Reward from "./Reward";
-import rewardTiers from "../data/rewards";
+import rewardTiers, { IRewardTier } from "../data/rewards";
+import { useState } from "react";
+import PledgeModal from "./PledgeModal";
 
 const About = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedReward, setSelectedReward] = useState<IRewardTier | null>(
+    null
+  );
+
+  const openModal = (reward: IRewardTier) => {
+    setIsModalOpen(true);
+    setSelectedReward(reward);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedReward(null);
+  };
+
   return (
     <section className="row-span-6 p-8 bg-white rounded-md md:row-span-5">
       <h1 className="text-2xl font-semibold">About this project</h1>
@@ -19,8 +36,15 @@ const About = () => {
       </p>
       <div>
         {rewardTiers.map((reward) => (
-          <Reward key={reward.id} {...reward} />
+          <Reward
+            key={reward.id}
+            {...reward}
+            onSelectReward={() => openModal(reward)}
+          />
         ))}
+        {isModalOpen && selectedReward && (
+          <PledgeModal reward={selectedReward} onClose={() => closeModal()} />
+        )}
       </div>
     </section>
   );
