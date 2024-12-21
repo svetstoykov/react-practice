@@ -61,13 +61,13 @@ export function validateInput(
   interestRate: number | undefined,
   mortgageType: string
 ) {
-  if (loanAmount == null || loanAmount <= 0) {
-    throw new Error("Loan amount must be a positive number.");
+  if (loanAmount == undefined || loanAmount <= 0) {
+    throw new Error("Mortgage amount must be a positive number.");
   }
-  if (termYears == null || termYears <= 0) {
-    throw new Error("Term years must be a positive number.");
+  if (termYears == undefined || termYears <= 0) {
+    throw new Error("Mortgage term must be a positive number.");
   }
-  if (interestRate == null || interestRate < 0) {
+  if (interestRate == undefined || interestRate < 0) {
     throw new Error("Interest rate must be a non-negative number.");
   }
   if (
