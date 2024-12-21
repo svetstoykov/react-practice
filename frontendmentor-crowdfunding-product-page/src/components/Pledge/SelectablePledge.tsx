@@ -25,17 +25,17 @@ const SelectablePledge: React.FC<ISelectablePledgeProps> = ({
       }`}
     >
       <div className="p-4">
-        <div className="flex items-center px-2">
-          <h2 className="mr-auto text-lg font-bold">{reward.title}</h2>
+        <div className="flex items-center justify-between px-2">
+          <h2 className="text-lg font-bold">{reward.title}</h2>
           <span className="text-sm text-aqua">
             Pledge ${reward.pledgeAmount} or more
           </span>
-          <span className="mx-4">
+          <span className="text-end">
             <span className="font-bold">{reward.itemsLeft}</span> left
           </span>
         </div>
 
-        <div className="p-2 text-sm text-gray-600">
+        <div className="pt-2 pl-2 text-sm text-gray-600">
           <p>{reward.description}</p>
         </div>
       </div>

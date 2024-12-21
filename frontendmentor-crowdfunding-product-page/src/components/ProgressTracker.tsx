@@ -31,6 +31,7 @@ const ProgressTracker: React.FC<ICrowdfundingState> = ({
     }
 
     const percentage = Math.round((totalMoneyBacked / endMoneyGoal) * 100);
+
     setProgressPercentage(percentage);
   }, [setProgressPercentage, endMoneyGoal, totalMoneyBacked]);
 
@@ -65,7 +66,8 @@ const ProgressTracker: React.FC<ICrowdfundingState> = ({
         {/* Progress bar */}
         <div className="w-full h-3 bg-gray-200 rounded-full">
           <div
-            className={`h-full w-[${progresPercentage}%] transition-all duration-300 rounded-full bg-aqua`}
+            className={`h-full transition-all duration-300 rounded-full bg-aqua`}
+            style={{ width: `${progresPercentage}%` }}
             role="progressbar"
             aria-valuenow={progresPercentage}
             aria-valuemin={0}
