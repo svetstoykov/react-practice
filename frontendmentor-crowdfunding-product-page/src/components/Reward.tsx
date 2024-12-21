@@ -8,7 +8,7 @@ const Reward: React.FC<IRewardProps> = (reward) => {
   return (
     <article
       key={reward.id}
-      className={`p-5 m-4 border border-gray-400 rounded-lg opacity-${
+      className={`p-6 mt-5 border border-gray-400 rounded-lg opacity-${
         reward.isOutOfStock ? "50" : "100"
       }`}
     >

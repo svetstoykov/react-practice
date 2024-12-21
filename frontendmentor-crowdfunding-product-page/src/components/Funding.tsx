@@ -7,7 +7,7 @@ interface IFundingProps {
 
 const Funding: React.FC<IFundingProps> = ({ onSelectReward }) => {
   return (
-    <section data-aos="fade-right" className="relative z-10 row-span-6 p-8 bg-white rounded-xl md:row-span-5">
+    <section data-aos="fade-right" className="relative z-10 row-span-6 p-10 bg-white rounded-xl md:row-span-5">
       <h1 className="text-2xl font-semibold">About this project</h1>
       <p className="mt-4 text-secondary-text">
         The Mastercraft Bamboo Monitor Riser is a sturdy and stylish platform
@@ -21,7 +21,7 @@ const Funding: React.FC<IFundingProps> = ({ onSelectReward }) => {
         desk space below your computer to allow notepads, pens, and USB sticks
         to be stored under the stand.
       </p>
-      <div>
+      <div className="w-full">
         {rewardTiers.map((reward) => (
           <Reward
             key={reward.id}

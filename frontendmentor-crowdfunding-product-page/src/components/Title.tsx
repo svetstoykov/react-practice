@@ -12,7 +12,10 @@ const Title: React.FC<ITitleProps> = ({ isMobile, onClickBackup }) => {
   const [isBookmarked, setIsBookmarked] = useState(false);
 
   return (
-    <section data-aos="fade-right" className="relative text-center bg-white rounded-xl z-15">
+    <section
+      data-aos="fade-right"
+      className="relative text-center bg-white rounded-xl z-15"
+    >
       <img
         src={logoMastercraft}
         className="absolute transform -translate-x-1/2 -translate-y-1/2 -top-0.5 left-1/2"
@@ -32,9 +35,9 @@ const Title: React.FC<ITitleProps> = ({ isMobile, onClickBackup }) => {
           </button>
           <div
             onClick={() => setIsBookmarked(!isBookmarked)}
-            className={`cursor-pointer transition duration-300 flex items-center justify-between md:pr-6 rounded-[30px] ${
-              isBookmarked ? "bg-aqua/30" : " bg-gray-200"
-            }`}
+            className={`cursor-pointer transition duration-300 flex items-center justify-between md:pr-6 rounded-[30px]
+              ${isBookmarked ? "hover:bg-aqua/30" : "hover:bg-gray-300/80"}
+              ${isBookmarked ? "bg-aqua/20" : " bg-gray-300/60"}`}
           >
             <img
               src={isBookmarked ? checkIcon : bookmarkIcon}
