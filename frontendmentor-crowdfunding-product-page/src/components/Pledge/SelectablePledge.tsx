@@ -43,7 +43,7 @@ const SelectablePledge: React.FC<ISelectablePledgeProps> = ({
       {/* Expandable section with pseudo-element for border */}
       <div
         className={`relative transform transition-all overflow-hidden ${
-          pledgeSelected === reward.id ? "h-16" : "h-0"
+          pledgeSelected === reward.id ? "h-[9.5rem] sm:h-16" : "h-0"
         }`}
       >
         <div
@@ -53,7 +53,7 @@ const SelectablePledge: React.FC<ISelectablePledgeProps> = ({
           <div className="absolute inset-x-0 top-0 h-px bg-gray-200" />
 
           {/* Content */}
-          <div className="flex items-center px-4 py-3">
+          <div className="flex flex-col items-center gap-2 px-4 py-3 sm:flex-row">
             <PledgeInput
               defaultPledgeAmount={reward.pledgeAmount}
               onClickContinue={onClickContinue}
