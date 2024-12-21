@@ -7,7 +7,7 @@ interface IThankYouModalProps {
 const ThankYouModal: React.FC<IThankYouModalProps> = ({ onClickGotIt }) => {
   return (
     <div className="fixed inset-0 z-20 flex items-center justify-center bg-black bg-opacity-50">
-      <div className="text-center p-10 bg-white rounded-xl md:w-[400px] w-[350px]">
+      <div data-aos="zoom-in" className="text-center p-10 bg-white rounded-xl md:w-[400px] w-[350px]">
         <img className="mx-auto mb-8" src={checkIcon} alt="check icon" />
         <h1 className="text-2xl font-bold">Thanks for your support!</h1>
         <p className="my-6 text-sm text-secondary-text">

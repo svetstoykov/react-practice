@@ -17,7 +17,7 @@ const SinglePledgeModal: React.FC<ISinglePledgeModal> = ({
 }) => {
   return (
     <div className="fixed inset-0 z-10 flex items-center justify-center bg-black bg-opacity-50">
-      <div className="p-8 bg-white rounded-lg md:w-[600px] w-[400px]">
+      <div data-aos="flip-up" className="p-8 bg-white rounded-lg md:w-[600px] w-[400px]">
           <header className="flex items-center">
             <h2 className="flex-1 text-xl font-bold">{reward.title}</h2>
             <span className="font-semibold text-aqua">

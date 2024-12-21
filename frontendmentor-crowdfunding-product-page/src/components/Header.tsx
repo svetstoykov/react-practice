@@ -29,7 +29,7 @@ const Header: React.FC<IHeaderProps> = ({ currentHero, logo, isMobile }) => {
         alt="background hero"
       />
 
-      <nav className="relative z-20 flex justify-between p-10 backdrop-blur-sm ">
+      <nav data-aos="fade-down" className="relative z-20 flex justify-between p-10 backdrop-blur-sm ">
         <div className="relative">
           <img src={logo} className="relative" alt="crowdfund logo" />
         </div>
@@ -62,7 +62,7 @@ const Header: React.FC<IHeaderProps> = ({ currentHero, logo, isMobile }) => {
             className="fixed inset-0 z-20 bg-black opacity-50"
             onClick={toggleDropdown}
           ></div>
-          <div className="absolute z-20 bg-white border rounded shadow-lg w-[200px] top-20 right-12">
+          <div data-aos="fade-down-left" data-aos-offset="800" className="absolute z-20 bg-white border rounded shadow-lg w-[200px] top-20 right-12">
             <ul className="h-[100px] flex flex-col justify-between items-center text-center">
               <li className="flex items-center justify-center flex-1 w-full border-b">
                 <a href="#">About</a>

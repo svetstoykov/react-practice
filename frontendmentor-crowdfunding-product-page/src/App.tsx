@@ -12,6 +12,8 @@ import MultiPledgeModal from "./components/Pledge/MultiPledgeModal";
 import { IRewardTier } from "./data/rewards";
 import SinglePledgeModal from "./components/Pledge/SinglePledgeModal";
 import { ToastContainer } from "react-toastify";
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // You can also use <link> for styles
 
 function App() {
   const [isMobile, setIsMobile] = useState(false);
@@ -23,6 +25,13 @@ function App() {
   const [selectedReward, setSelectedReward] = useState<IRewardTier | null>(
     null
   );
+
+  useEffect(() => {
+    AOS.init({
+      duration: 600,
+      easing: "ease-in-out",
+    });
+  });
 
   const randomInt = (min: number, max: number) =>
     Math.floor(Math.random() * (max - min + 1)) + min;
@@ -92,10 +101,8 @@ function App() {
   return (
     state && (
       <div className="relative w-full p-0 m-0 font-commisioner">
-        
         <Header currentHero={currentHero} logo={logo} isMobile={isMobile} />
         <main className="grid gap-4 grid-cols-1 md:grid-rows-7 w-[65%] max-w-[750px] md:min-w-[640px] min-w-[400px] mx-auto md:mt-44 mt-28 mb-20">
-          
           <Title
             onClickBackup={() => setIsBackupModalOpen(true)}
             isMobile={isMobile}

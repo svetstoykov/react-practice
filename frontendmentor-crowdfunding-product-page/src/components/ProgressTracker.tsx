@@ -36,7 +36,7 @@ const ProgressTracker: React.FC<ICrowdfundingState> = ({
   }, [setProgressPercentage, endMoneyGoal, totalMoneyBacked]);
 
   return (
-    <section className="relative z-10 px-10 pt-10 pb-5 bg-white rounded-xl">
+    <section data-aos="fade-left" className="relative z-10 px-10 pt-10 pb-5 bg-white rounded-xl">
       <div className="flex flex-col gap-10 md:gap-16">
         {/* Stats wrapper */}
         <div className="flex flex-col items-center justify-between md:flex-row ">
