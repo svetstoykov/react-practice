@@ -1,30 +1,13 @@
 import Reward from "./Reward";
 import rewardTiers, { IRewardTier } from "../data/rewards";
-import { useState } from "react";
-import SinglePledgeModal from "./Pledge/SinglePledgeModal";
 
-interface IAboutProps {
-  isMobile: boolean;
+interface IFundingProps {
+  onSelectReward: (reward: IRewardTier) => void;
 }
 
-const About: React.FC<IAboutProps> = ({ isMobile }) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedReward, setSelectedReward] = useState<IRewardTier | null>(
-    null
-  );
-
-  const openModal = (reward: IRewardTier) => {
-    setIsModalOpen(true);
-    setSelectedReward(reward);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-    setSelectedReward(null);
-  };
-
+const Funding: React.FC<IFundingProps> = ({ onSelectReward }) => {
   return (
-    <section className="relative z-10 row-span-6 p-8 bg-white rounded-md md:row-span-5">
+    <section className="relative z-10 row-span-6 p-8 bg-white rounded-xl md:row-span-5">
       <h1 className="text-2xl font-semibold">About this project</h1>
       <p className="mt-4 text-secondary-text">
         The Mastercraft Bamboo Monitor Riser is a sturdy and stylish platform
@@ -43,20 +26,12 @@ const About: React.FC<IAboutProps> = ({ isMobile }) => {
           <Reward
             key={reward.id}
             {...reward}
-            onSelectReward={() => openModal(reward)}
+            onSelectReward={() => onSelectReward(reward)}
           />
         ))}
-        {isModalOpen && selectedReward && (
-          <SinglePledgeModal
-            reward={selectedReward}
-            onClose={() => closeModal()}
-            onClickContinue={() => console.log("Continue")}
-            isMobile={isMobile}
-          />
-        )}
       </div>
     </section>
   );
 };
 
-export default About;
+export default Funding;

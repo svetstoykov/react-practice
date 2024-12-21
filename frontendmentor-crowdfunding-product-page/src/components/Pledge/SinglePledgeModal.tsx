@@ -5,7 +5,7 @@ import closeModal from "../../assets/images/icon-close-modal.svg";
 interface ISinglePledgeModal {
   reward: IRewardTier;
   onClose: () => void;
-  onClickContinue: () => void;
+  onClickContinue: (amount: number) => void;
   isMobile: boolean;
 }
 
@@ -16,7 +16,7 @@ const SinglePledgeModal: React.FC<ISinglePledgeModal> = ({
   onClickContinue,
 }) => {
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+    <div className="fixed inset-0 z-10 flex items-center justify-center bg-black bg-opacity-50">
       <div className="p-8 bg-white rounded-lg md:w-[600px] w-[400px]">
           <header className="flex items-center">
             <h2 className="flex-1 text-xl font-bold">{reward.title}</h2>
@@ -34,7 +34,7 @@ const SinglePledgeModal: React.FC<ISinglePledgeModal> = ({
               onClickContinue={onClickContinue}
               isMobile={isMobile}
             />
-            <img className="p-3.5 ml-2 bg-gray-200 rounded-full" src={closeModal} onClick={onClose} alt="close modal" />
+            <img className="p-3.5 ml-2 bg-gray-300 hover:opacity-80 transition duration-300 rounded-full" src={closeModal} onClick={onClose} alt="close modal" />
           </footer>
       </div>
     </div>

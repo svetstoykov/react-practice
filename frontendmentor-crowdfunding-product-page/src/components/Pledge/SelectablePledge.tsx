@@ -1,22 +1,23 @@
 import React from "react";
-import { IRewardTier } from "../data/rewards";
-import PledgeInput from "./Pledge/PledgeInput";
+import { IRewardTier } from "../../data/rewards";
+import PledgeInput from "./PledgeInput";
 
 interface ISelectablePledgeProps {
   reward: IRewardTier;
   pledgeSelected: number | null;
-  onClickPledge: () => void;
+  onSelectPledge: () => void;
+  onClickContinue: (amount: number) => void;
 }
 
 const SelectablePledge: React.FC<ISelectablePledgeProps> = ({
   reward,
   pledgeSelected,
-  onClickPledge,
+  onSelectPledge,
+  onClickContinue
 }) => {
   return (
     <li
-      key={reward.id}
-      onClick={onClickPledge}
+      onClick={onSelectPledge}
       className={`relative border-2 border-${
         pledgeSelected == reward.id ? "aqua" : "gray-300"
       } cursor-pointer rounded-xl hover:border-${
@@ -55,7 +56,7 @@ const SelectablePledge: React.FC<ISelectablePledgeProps> = ({
           <div className="flex items-center px-4 py-3">
             <PledgeInput
               defaultPledgeAmount={reward.pledgeAmount}
-              onClickContinue={() => console.log("hi")}
+              onClickContinue={onClickContinue}
               isMobile={true}
             />
           </div>
