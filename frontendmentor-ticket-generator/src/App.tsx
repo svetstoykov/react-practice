@@ -19,9 +19,9 @@ function App() {
 
   return (
     <>
-      <div className="flex flex-col items-center justify-center pb-20 text-center md:max-w-[700px]">
+      <div className="relative z-10 md:pb-10 flex flex-col items-center justify-center text-center md:max-w-[700px]">
         <Header />
-        <main className="gap-6 md:min-w-[350px] flex flex-col justify-center items-centers text-white/80">
+        <main className="gap-4 md:min-w-[350px] flex flex-col justify-center items-centers text-white/80">
           <AvatarFileInput onChange={setFilePreview} />
           <TextInput
             label="Full Name"

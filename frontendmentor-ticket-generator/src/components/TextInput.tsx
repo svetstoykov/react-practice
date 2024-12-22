@@ -16,7 +16,7 @@ const TextInput: React.FC<ITextInputProps> = ({
       <legend>{label}</legend>
       <input
         onChange={(e) => onChange(e.target.value)}
-        className="mt-1 p-2 w-full bg-opacity-[8%] bg-white rounded-xl border-[1px] border-white/60
+        className="mt-1 p-2 w-full bg-opacity-[8%] bg-white rounded-xl border-[1px] border-white/40
         focus:border-3 
         focus:border-white
         hover:border-3

@@ -12,27 +12,30 @@ const AvatarFileInput: React.FC<IAvatarFileInputProps> = ({ onChange }) => {
   const [preview, setPreview] = useState<string | null>(null);
   const [fileName, setFileName] = useState("");
 
-  const onDrop = useCallback((acceptedFiles: File[]) => {
-    const file = acceptedFiles[0];
-    setFileName(file.name);
+  const onDrop = useCallback(
+    (acceptedFiles: File[]) => {
+      const file = acceptedFiles[0];
+      setFileName(file.name);
 
-    if (file.type.startsWith("image/")) {
-      const reader = new FileReader();
+      if (file.type.startsWith("image/")) {
+        const reader = new FileReader();
 
-      // If we have a valid file, set an event when the reader finishes with the file read
-      reader.onload = (e) => {
-        if (e.target?.result && typeof e.target.result === "string") {
-          const src = e.target.result;
-          // the `e.target.result` will be the img src ready for preview
-          setPreview(src);
-          onChange(src);
-        }
-      };
-      reader.readAsDataURL(file);
-    } else {
-      setPreview(null);
-    }
-  }, []);
+        // If we have a valid file, set an event when the reader finishes with the file read
+        reader.onload = (e) => {
+          if (e.target?.result && typeof e.target.result === "string") {
+            const src = e.target.result;
+            // the `e.target.result` will be the img src ready for preview
+            setPreview(src);
+            onChange(src);
+          }
+        };
+        reader.readAsDataURL(file);
+      } else {
+        setPreview(null);
+      }
+    },
+    [onChange]
+  );
 
   const clearFile = (e: React.MouseEvent<HTMLElement>) => {
     e.stopPropagation();
@@ -52,7 +55,7 @@ const AvatarFileInput: React.FC<IAvatarFileInputProps> = ({ onChange }) => {
         multiple={false}
       >
         {({ getRootProps, getInputProps }) => (
-          <section className="border-2 border-dashed hover:border-white/80 border-white/40 py-6 mt-1 px-4 rounded-xl bg-white bg-opacity-[8%] hover:shadow-[0_0_5px_white] transition duration-300 text-light-gray">
+          <section className="border-2 border-dashed  hover:border-white/80 border-white/40 py-6 mt-1 px-4 rounded-xl bg-white bg-opacity-[8%] hover:shadow-[0_0_5px_white] transition duration-300 text-light-gray">
             <div className="flex flex-col items-center" {...getRootProps()}>
               <input {...getInputProps()} />
 
@@ -72,8 +75,7 @@ const AvatarFileInput: React.FC<IAvatarFileInputProps> = ({ onChange }) => {
                   <button
                     onClick={clearFile}
                     className="absolute -top-3 -right-3 p-1 rounded-full 
-                    hover:shadow-[0_0_2px_white]
-                    bg-black/80 border border-white/50 hover:bg-black/70 transition-colors"
+                    bg-black/90 border border-white/50 hover:bg-black/60 transition-colors"
                   >
                     <XIcon className="w-4 h-4" />
                   </button>
@@ -82,7 +84,7 @@ const AvatarFileInput: React.FC<IAvatarFileInputProps> = ({ onChange }) => {
                     <img
                       src={preview}
                       alt="Preview"
-                      className="max-w-[120px] max-h-[120px] rounded-lg object-contain"
+                      className="max-w-[100px] border border-white/50 max-h-[100px] rounded-lg object-contain"
                     />
                   ) : (
                     <div className="flex flex-col items-center">
