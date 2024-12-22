@@ -2,14 +2,20 @@ import React from "react";
 
 interface ITextInputProps {
   label: string;
-  placeholder: string
+  placeholder: string;
+  onChange: (input: string) => void;
 }
 
-const TextInput: React.FC<ITextInputProps> = ({ label, placeholder }) => {
+const TextInput: React.FC<ITextInputProps> = ({
+  label,
+  placeholder,
+  onChange,
+}) => {
   return (
     <fieldset>
       <legend>{label}</legend>
       <input
+        onChange={(e) => onChange(e.target.value)}
         className="mt-1 p-2 w-full bg-opacity-[8%] bg-white rounded-xl border-[1px] border-white/60
         focus:border-3 
         focus:border-white

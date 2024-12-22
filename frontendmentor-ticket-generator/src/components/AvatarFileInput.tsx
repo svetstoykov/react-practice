@@ -4,7 +4,11 @@ import uploadFile from "../assets/images/icon-upload.svg";
 import info from "../assets/images/icon-info.svg";
 import { FileIcon, XIcon } from "lucide-react";
 
-const AvatarFileInput = () => {
+interface IAvatarFileInputProps {
+  onChange: (src: string) => void;
+}
+
+const AvatarFileInput: React.FC<IAvatarFileInputProps> = ({ onChange }) => {
   const [preview, setPreview] = useState<string | null>(null);
   const [fileName, setFileName] = useState("");
 
@@ -14,9 +18,14 @@ const AvatarFileInput = () => {
 
     if (file.type.startsWith("image/")) {
       const reader = new FileReader();
+
+      // If we have a valid file, set an event when the reader finishes with the file read
       reader.onload = (e) => {
         if (e.target?.result && typeof e.target.result === "string") {
-          setPreview(e.target.result);
+          const src = e.target.result;
+          // the `e.target.result` will be the img src ready for preview
+          setPreview(src);
+          onChange(src);
         }
       };
       reader.readAsDataURL(file);
