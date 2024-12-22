@@ -3,55 +3,86 @@ import TextInput from "./components/TextInput";
 import AvatarFileInput from "./components/AvatarFileInput";
 import Header from "./components/Header";
 import { useState } from "react";
+import { toast, ToastContainer } from "react-toastify";
+import ticket from "../src/assets/images/pattern-ticket.svg";
 
 function App() {
   const [name, setName] = useState<string | null>("");
   const [email, setEmail] = useState<string | null>("");
   const [githubUsername, setGithubUsername] = useState<string | null>("");
-  const [filePreview, setFilePreview] = useState<string | null>("");
+  const [avatarPreview, setAvatarPreview] = useState<string | null>("");
+  const [isTicketGenerated, setIsTicketGenerate] = useState<boolean>(false);
 
   const onClickGenerate = () => {
-    console.log(name);
-    console.log(email);
-    console.log(githubUsername);
-    console.log(filePreview);
+    if (avatarPreview === null || avatarPreview.length === 0) {
+      toast.error("Please upload a valid avatar image!");
+      return;
+    }
+
+    setIsTicketGenerate(true);
   };
 
   return (
     <>
       <div className="relative z-10 md:pb-10 flex flex-col items-center justify-center text-center md:max-w-[700px]">
-        <Header />
-        <main className="gap-4 md:min-w-[350px] flex flex-col justify-center items-centers text-white/80">
-          <AvatarFileInput onChange={setFilePreview} />
-          <TextInput
-            label="Full Name"
-            placeholder="John Doe"
-            onChange={setName}
-          />
-          <TextInput
-            onChange={setEmail}
-            label="Email Address"
-            placeholder="example@mail.com"
-          />
-          <TextInput
-            onChange={setGithubUsername}
-            label="Github Username"
-            placeholder="developer_404"
-          />
-          <button
-            onClick={onClickGenerate}
-            className="
+        <Header
+          fullName={name}
+          email={email}
+          isTicketGenerated={isTicketGenerated}
+        />
+        <main className="gap-2 md:min-w-[350px] flex flex-col justify-center items-centers text-white/80">
+          {isTicketGenerated ? (
+            <>
+              <img
+                className="relative px-5 mt-8"
+                src={ticket}
+                alt="Ticket"
+              >
+                {/* <img src={avatarPreview!} alt="Avatar" /> */}
+
+              </img>
+            </>
+          ) : (
+            <>
+              <AvatarFileInput onChange={setAvatarPreview} />
+              <TextInput
+                validation={{ minLength: 5, required: true }}
+                label="Full Name"
+                placeholder="John Doe"
+                onChange={setName}
+              />
+              <TextInput
+                validation={{
+                  pattern: new RegExp("^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$"),
+                  required: true,
+                }}
+                onChange={setEmail}
+                label="Email Address"
+                placeholder="example@mail.com"
+              />
+              <TextInput
+                validation={{ required: true }}
+                onChange={setGithubUsername}
+                label="Github Username"
+                placeholder="developer_404"
+              />
+              <button
+                onClick={onClickGenerate}
+                className="
           transition
           duration-300
           hover:shadow-[0_0_10px_coral]
           px-10 py-3 rounded-xl font-bold bg-coral text-black/90 mt-2"
-          >
-            Generate My Ticket
-          </button>
+              >
+                Generate My Ticket
+              </button>
+            </>
+          )}
         </main>
       </div>
 
       <ResponsiveBackground />
+      <ToastContainer theme="dark" />
     </>
   );
 }
