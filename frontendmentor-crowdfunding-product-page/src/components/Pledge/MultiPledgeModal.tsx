@@ -15,8 +15,8 @@ const MultiPledgeModal: React.FC<IMultiPledgeModalProps> = ({
   const [pledgeSelected, setPledgeSelected] = useState<number | null>(null);
 
   return (
-    <div data-aos="flip-left" className="fixed inset-0 z-20 flex items-center justify-center bg-black bg-opacity-50">
-      <div className="text-left p-10 bg-white rounded-xl overflow-y-auto md:max-h-full max-h-[90%] md:max-w-[600px] w-[80%] no-scrollbar">
+    <div className="fixed inset-0 z-20 flex items-center justify-center bg-black bg-opacity-50">
+      <div data-aos="flip-left" className="text-left p-10 bg-white rounded-xl overflow-y-auto md:max-h-full max-h-[90%] md:max-w-[600px] w-[80%] no-scrollbar">
         <header className="flex items-center justify-between">
           <h1 className="text-2xl font-bold">Back this project</h1>
           <img
