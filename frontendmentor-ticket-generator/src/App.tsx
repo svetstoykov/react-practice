@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ResponsiveBackground from "./components/ResponsiveBackground";
 import TextInput from "./components/TextInput";
@@ -6,17 +6,7 @@ import AvatarFileInput from "./components/AvatarFileInput";
 import Header from "./components/Header";
 import { toast, ToastContainer } from "react-toastify";
 import Ticket from "./components/Ticket";
-
-// Loading spinner component
-const LoadingSpinner = () => (
-  <div className="flex items-center justify-center">
-    <motion.div
-      className="w-16 h-16 border-4 rounded-full border-coral border-t-transparent"
-      animate={{ rotate: 360 }}
-      transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-    />
-  </div>
-);
+import LoadingSpinner from "./components/LoadingSpinner";
 
 function App() {
   const [name, setName] = useState<string>("");
@@ -127,7 +117,7 @@ function App() {
                 />
                 <motion.button
                   onClick={onClickGenerate}
-                  className="transition duration-300 hover:shadow-[0_0_10px_coral] px-10 py-3 rounded-xl font-bold bg-coral text-black/90 mt-2"
+                  className="transition duration-300 hover:shadow-[0_0_10px_coral] px-10 py-3 rounded-xl font-bold bg-coral text-black/90 mt-4"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
