@@ -76,7 +76,7 @@ const TextInput: React.FC<ITextInputProps> = ({
   }, [externalError]);
 
   return (
-    <fieldset className="flex flex-col">
+    <fieldset className="flex flex-col mt-4">
       <legend>{label}</legend>
       <input
         value={value}
