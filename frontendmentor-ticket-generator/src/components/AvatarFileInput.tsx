@@ -1,8 +1,9 @@
 import { useCallback, useState } from "react";
-import Dropzone from "react-dropzone";
+import Dropzone, { FileRejection } from "react-dropzone";
 import uploadFile from "../assets/images/icon-upload.svg";
 import info from "../assets/images/icon-info.svg";
 import { FileIcon, XIcon } from "lucide-react";
+import { toast } from "react-toastify";
 
 interface IAvatarFileInputProps {
   onChange: (src: string) => void;
@@ -12,7 +13,7 @@ const AvatarFileInput: React.FC<IAvatarFileInputProps> = ({ onChange }) => {
   const [preview, setPreview] = useState<string | null>(null);
   const [fileName, setFileName] = useState("");
 
-  const onDrop = useCallback(
+  const onDropAccepted = useCallback(
     (acceptedFiles: File[]) => {
       const file = acceptedFiles[0];
       setFileName(file.name);
@@ -37,6 +38,18 @@ const AvatarFileInput: React.FC<IAvatarFileInputProps> = ({ onChange }) => {
     [onChange]
   );
 
+  const onDropRejected = (rejectedFile: FileRejection[]) => {
+    const file = rejectedFile[0];
+
+    file.errors.forEach((e) => {
+      if (e.code === "file-too-large") {
+        toast.error("Max allowed avatar size is: 500 KB");
+      } else {
+        toast.error(e.message);
+      }
+    });
+  };
+
   const clearFile = (e: React.MouseEvent<HTMLElement>) => {
     e.stopPropagation();
     setPreview(null);
@@ -47,7 +60,8 @@ const AvatarFileInput: React.FC<IAvatarFileInputProps> = ({ onChange }) => {
     <section className="mt-4 md:mt-0 text-start">
       <span>Upload avatar</span>
       <Dropzone
-        onDrop={onDrop}
+        onDropAccepted={onDropAccepted}
+        onDropRejected={onDropRejected}
         maxSize={5 * 1024 * 100} // 500KB in bytes
         accept={{
           "image/*": [".png", ".jpg", ".jpeg"],
@@ -55,7 +69,10 @@ const AvatarFileInput: React.FC<IAvatarFileInputProps> = ({ onChange }) => {
         multiple={false}
       >
         {({ getRootProps, getInputProps }) => (
-          <section className="border-2 border-dashed  hover:border-white/80 border-white/40 py-6 mt-1 px-4 rounded-xl bg-white bg-opacity-[8%] hover:shadow-[0_0_5px_white] transition duration-300 text-light-gray">
+          <section
+            className=" md:max-h-full
+          max-h-[120px] border-2 border-dashed  hover:border-white/80 border-white/40 py-6 mt-1 px-4 rounded-xl bg-white bg-opacity-[8%] hover:shadow-[0_0_5px_white] transition duration-300 text-light-gray"
+          >
             <div className="flex flex-col items-center" {...getRootProps()}>
               <input {...getInputProps()} />
 
