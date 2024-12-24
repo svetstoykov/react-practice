@@ -1,50 +1,46 @@
-# React + TypeScript + Vite
+# Frontend Mentor - Conference ticket generator solution
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a solution to the [Conference ticket generator challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/conference-ticket-generator-oq5gFIU12w). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
 
-Currently, two official plugins are available:
+## Table of contents
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Built with](#built-with)
 
-## Expanding the ESLint configuration
+**Note: Delete this note and update the table of contents based on what sections you keep.**
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Overview
 
-- Configure the top-level `parserOptions` property like this:
+### The challenge
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+Users should be able to:
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+- Complete the form with their details
+- Receive form validation messages if:
+  - Any field is missed
+  - The email address is not formatted correctly
+  - The avatar upload is too big or the wrong image format
+- Complete the form only using their keyboard
+- Have inputs, form field hints, and error messages announced on their screen reader
+- See the generated conference ticket when they successfully submit the form
+- View the optimal layout for the interface depending on their device's screen size
+- See hover and focus states for all interactive elements on the page
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+### Screenshot
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+![](./src//assets/preview.png)
+
+### Links
+
+- Solution URL: [Add solution URL here](https://github.com/svetstoykov/react-practice/tree/main/frontendmentor-ticket-generator)
+- Live Site URL: [Add live site URL here](hhttps://steady-horse-c3c5c7.netlify.app)
+
+### Built with
+
+- [React](https://reactjs.org/)
+- [TailwindCSS](https://tailwindcss.com) - Styling
+- [AOS](https://michalsnik.github.io/aos/) - Animations
+- [FramerMotion](https://motion.dev) - Animations
+- Bundled with [vite](https://vite.dev/guide/)
