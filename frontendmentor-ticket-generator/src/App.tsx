@@ -42,7 +42,7 @@ function App() {
 
   return (
     <>
-      <div className="relative z-10 md:pb-10 flex flex-col items-center justify-center text-center md:max-w-[700px]">
+      <div className="relative z-10 md:pt-10 pt-32 md:pb-10 flex flex-col items-center justify-center text-center h-[100dvh] md:max-w-[700px]">
         <Header
           fullName={name}
           email={email}
@@ -88,6 +88,7 @@ function App() {
               </motion.div>
             ) : (
               <motion.div
+                className="pb-6"
                 key="form"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
