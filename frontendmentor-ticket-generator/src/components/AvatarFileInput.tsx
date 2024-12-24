@@ -44,7 +44,7 @@ const AvatarFileInput: React.FC<IAvatarFileInputProps> = ({ onChange }) => {
   };
 
   return (
-    <section className="text-start">
+    <section className="mt-4 md:mt-0 text-start">
       <span>Upload avatar</span>
       <Dropzone
         onDrop={onDrop}
@@ -74,8 +74,7 @@ const AvatarFileInput: React.FC<IAvatarFileInputProps> = ({ onChange }) => {
                 <div className="relative">
                   <button
                     onClick={clearFile}
-                    className="absolute -top-3 -right-3 p-1 rounded-full 
-                    bg-black/90 border border-white/50 hover:bg-black/60 transition-colors"
+                    className="absolute p-1 transition-colors border rounded-full -top-3 -right-3 bg-black/90 border-white/50 hover:bg-black/60"
                   >
                     <XIcon className="w-4 h-4" />
                   </button>

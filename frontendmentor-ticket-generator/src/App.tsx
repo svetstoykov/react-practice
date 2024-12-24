@@ -5,13 +5,24 @@ import Header from "./components/Header";
 import { useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import ticket from "../src/assets/images/pattern-ticket.svg";
+import fullLogo from "../src/assets/images/logo-full.svg";
+import githubLogo from "../src/assets/images/icon-github.svg";
+import Ticket from "./components/Ticket";
 
 function App() {
   const [name, setName] = useState<string | null>("");
   const [email, setEmail] = useState<string | null>("");
   const [githubUsername, setGithubUsername] = useState<string | null>("");
   const [avatarPreview, setAvatarPreview] = useState<string | null>("");
-  const [isTicketGenerated, setIsTicketGenerate] = useState<boolean>(false);
+  const [isTicketGenerated, setIsTicketGenerated] = useState<boolean>(false);
+  const [ticketCode, setTicketCode] = useState("");
+
+  const generateRandomCode = (): string => {
+    const randomCode = Math.floor(Math.random() * 100000)
+      .toString()
+      .padStart(5, "0");
+    return `#${randomCode}`;
+  };
 
   const onClickGenerate = () => {
     if (avatarPreview === null || avatarPreview.length === 0) {
@@ -19,7 +30,8 @@ function App() {
       return;
     }
 
-    setIsTicketGenerate(true);
+    setTicketCode(generateRandomCode());
+    setIsTicketGenerated(true);
   };
 
   return (
@@ -32,16 +44,12 @@ function App() {
         />
         <main className="gap-2 md:min-w-[350px] flex flex-col justify-center items-centers text-white/80">
           {isTicketGenerated ? (
-            <>
-              <img
-                className="relative px-5 mt-8"
-                src={ticket}
-                alt="Ticket"
-              >
-                {/* <img src={avatarPreview!} alt="Avatar" /> */}
-
-              </img>
-            </>
+            <Ticket
+              avatar={avatarPreview!}
+              name={name!}
+              githubUsername={githubUsername!}
+              ticketCode={ticketCode}
+            />
           ) : (
             <>
               <AvatarFileInput onChange={setAvatarPreview} />
